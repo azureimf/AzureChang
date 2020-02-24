@@ -1,0 +1,6 @@
+D:\backup\Imp\趣味\SourceCode\CoronaCalc\CoronaCalc\bin\x64\Debug\CoronaCalc.exe.config
+D:\backup\Imp\趣味\SourceCode\CoronaCalc\CoronaCalc\bin\x64\Debug\CoronaCalc.exe
+D:\backup\Imp\趣味\SourceCode\CoronaCalc\CoronaCalc\bin\x64\Debug\CoronaCalc.pdb
+D:\backup\Imp\趣味\SourceCode\CoronaCalc\CoronaCalc\obj\x64\Debug\CoronaCalc.csproj.CoreCompileInputs.cache
+D:\backup\Imp\趣味\SourceCode\CoronaCalc\CoronaCalc\obj\x64\Debug\CoronaCalc.exe
+D:\backup\Imp\趣味\SourceCode\CoronaCalc\CoronaCalc\obj\x64\Debug\CoronaCalc.pdb
