@@ -37,7 +37,7 @@ namespace CoronaCalc
                     if (cmds.Length - 1 >= i + 1) //パラメータが存在するなら
                         org_patient_number = int.Parse(cmds[i + 1].Trim());
 
-                    Console.WriteLine("Org. patient number: " + org_patient_number.ToString());
+                    Console.WriteLine("numbers of patient at first phase: " + org_patient_number.ToString());
 
                 }
                 else if (cmds[i].Trim() == "/bed")
@@ -45,16 +45,30 @@ namespace CoronaCalc
                     if (cmds.Length - 1 >= i + 1) //パラメータが存在するなら
                         g.bed_count = int.Parse(cmds[i + 1].Trim());
 
-                    Console.WriteLine("Hostipal bed count: " + g.bed_count.ToString());
+                    Console.WriteLine("Hostipal's bed count at all: " + g.bed_count.ToString());
 
 
                 }
-                else if (cmds[i].Trim() == "/dead_rate")
+                else if (cmds[i].Trim() == "/death_rate")
                 {
                     if (cmds.Length - 1 >= i + 1) //パラメータが存在するなら
-                        c.dead_rate = double.Parse(cmds[i + 1].Trim());
+                        c.death_rate = double.Parse(cmds[i + 1].Trim());
 
-                    Console.WriteLine("Dead Rate: " + c.dead_rate);
+                    Console.WriteLine("Death rate: " + c.death_rate);
+                }
+                else if (cmds[i].Trim() == "/death_rate2")
+                {
+                    if (cmds.Length - 1 >= i + 1) //パラメータが存在するなら
+                        c.death_rate_no_bed = double.Parse(cmds[i + 1].Trim());
+
+                    Console.WriteLine("Death rate when not be hospitalized: " + c.death_rate_no_bed);
+                }
+                else if (cmds[i].Trim() == "/contact_number")
+                {
+                    if (cmds.Length - 1 >= i + 1) //パラメータが存在するなら
+                        c.max_contact_number = int.Parse(cmds[i + 1].Trim());
+
+                    Console.WriteLine("Max contact number: " + c.max_contact_number);
                 }
 
             }
@@ -116,13 +130,13 @@ namespace CoronaCalc
 
                 if (care_level_4_count > g.bed_count)
                 {
-                    c.org_dead_rate = c.dead_rate;
-                    c.dead_rate = c.dead_rate_no_bed;
+                    c.org_death_rate = c.death_rate;
+                    c.death_rate = c.death_rate_no_bed;
 
                 }
                 else
                 {
-                    c.dead_rate = c.org_dead_rate;
+                    c.death_rate = c.org_death_rate;
                 }
 
                 in_hospital_sum = care_level_4_count;

@@ -16,9 +16,9 @@ namespace CoronaCalc
     {
         public double R0_min;
         public double R0_max;
-        public double org_dead_rate;
-        public double dead_rate;
-        public double dead_rate_no_bed;
+        public double org_death_rate;
+        public double death_rate;
+        public double death_rate_no_bed;
         public double serious_rate;
         public double no_symptoms_rate;
         public double no_symptoms_period;
@@ -26,20 +26,22 @@ namespace CoronaCalc
         public double checkup_symptoms_threshold;
         public int left_bed_count;
         public int org_virus_id;
+        public int max_contact_number;
 
         public CoronaParameter()
         {
             R0_min = 3.9;
             R0_max = 6.6;
-            dead_rate = 0.05;
-            dead_rate_no_bed = 0.11;
-            org_dead_rate = 0.05;
+            death_rate = 0.05;
+            death_rate_no_bed = 0.11;
+            org_death_rate = 0.05;
             serious_rate = 0.25;
             no_symptoms_rate = 0.5;
             no_symptoms_period = 14;
             checkup_rate = 0.05;
             checkup_symptoms_threshold = 0.8;
             left_bed_count = 20000;
+            max_contact_number = 70;
 
         }
 
@@ -88,17 +90,17 @@ namespace CoronaCalc
             checkup_relate = r.Next(2);
             use_mask = r.Next(2); // 0=未着用 1=着用
             sick_period = r.Next(7, 14);
-            contact_number = r.Next(0, 70);
+            contact_number = r.Next(0, c.max_contact_number);
             activitiy_factor = r.NextDouble();
             train_fator = r.NextDouble();
             room_factor = r.NextDouble();
             serious_factor = r.NextDouble();
             health_factor = r.NextDouble();
 
-            double dead_rate_int = (int)(c.dead_rate * 100);
+            double death_rate_int = (int)(c.death_rate * 100);
             int destiny_dice = r.Next(0, 100);
 
-            if (dice(r, c.dead_rate) == 1)
+            if (dice(r, c.death_rate) == 1)
                 day_to_dead = sick_period;
         }
 
